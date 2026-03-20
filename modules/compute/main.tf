@@ -2,7 +2,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   name                            = "vmss-app"
   resource_group_name             = var.rg_name
   location                        = var.location
-  sku                             = "Standard_B2s"
+  sku                             = "Standard_B1s"
   instances                       = 2
   admin_username                  = var.admin_user
   admin_password                  = var.admin_password
