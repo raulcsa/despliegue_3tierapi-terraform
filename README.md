@@ -49,9 +49,24 @@ Verifica los recursos que Terraform va a crear en tu cuenta de Azure.
 terraform plan -var-file="secretos.tfvars"
 ```
 
+Puedes crear tu propio fichero secretos.tfvars como:
+```
+admin_password = "contraseña"
+db_password    = "contraseña"
+```
+También puedes no crearlo y al momento de ejecutar terraform plan te pedirá las claves por el terminalc
+
+
 ## 3. Aplicar el despliegue
 Ejecuta la creación de la infraestructura. 
 ```
 terraform apply -var-file="secretos.tfvars"
 ```
 El proceso tardará varios minutos. Al finalizar, Terraform imprimirá en la consola una variable de salida (application_url) con la dirección IP pública del Application Gateway.
+
+## 4. Limpieza de Recursos
+Para evitar costes continuos en la suscripción de Azure (especialmente por el Application Gateway y la base de datos SQL), hay que asegurarse de destruir toda la infraestructura una vez que hayas terminado tus pruebas:
+```
+terraform destroy -var-file="secretos.tfvars"
+```
+
