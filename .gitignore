@@ -1,1 +1,31 @@
+# Local .terraform directories
+**/.terraform/*
+
+# Archivos de estado de Terraform 
+*.tfstate
+*.tfstate.*
+
+# Archivos de logs de errores de Terraform
+crash.log
+crash.*.log
+
+# Archivos de variables 
 *.tfvars
+*.tfvars.json
+
+# Archivos de anulación locales 
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Archivos de plan de Terraform 
+*.tfplan
+
+# Archivos de configuración de la CLI local
+.terraformrc
+terraform.rc
+
+# Archivos temporales del sistema operativo 
+.DS_Store
+Thumbs.db
