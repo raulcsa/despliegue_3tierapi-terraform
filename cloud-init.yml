@@ -1,0 +1,21 @@
+package_upgrade: true
+packages:
+  - python3-pip
+  - python3-venv
+
+write_files:
+  - path: /opt/app/app.py
+    permissions: '0644'
+    content: |
+      from flask import Flask, jsonify
+      app = Flask(__name__)
+      @app.route('/')
+      def health_check():
+          return jsonify({"status": "success", "message": "Arquitectura de 3 Capas en Azure operativa"})
+      if __name__ == '__main__':
+          app.run(host='0.0.0.0', port=8080)
+
+runcmd:
+  - cd /opt/app
+  - pip3 install flask
+  - nohup python3 app.py > app.log 2>&1 &
